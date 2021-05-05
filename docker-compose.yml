@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  neo4j-db:
+    build: ./src/neo4j-db
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+      - NEO4J_AUTH=neo4j/letmein
+
+  api:
+    build: ./src/api
+    ports:
+      - 4000:4000
+    environment:
+      - API_DB_HOST=bolt://neo4j-db:7687
+      - API_DB_USER=${API_DB_USER}
+      - API_DB_PASSWORD=${API_DB_PASSWORD}
+      - API_PORT=${API_PORT}
+
+    links:
+      - neo4j-db
+    depends_on:
+      - neo4j-db
+
+  web:
+    build: ./src/web
+    ports:
+      - 8080:80
+    links:
+      - api
+    depends_on:
+      - api
