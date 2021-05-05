@@ -3,6 +3,7 @@ version: '3'
 services:
   neo4j-db:
     build: ./src/neo4j-db
+    image: maxandersson/icd-db
     ports:
       - 7474:7474
       - 7687:7687
@@ -12,6 +13,7 @@ services:
 
   api:
     build: ./src/api
+    image: maxandersson/icd-api
     ports:
       - 4000:4000
     environment:
@@ -27,6 +29,7 @@ services:
 
   web:
     build: ./src/web
+    image: maxandersson/icd-web
     ports:
       - 8080:80
     links:
