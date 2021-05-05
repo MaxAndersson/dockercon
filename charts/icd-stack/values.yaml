@@ -1,0 +1,6 @@
+api:
+  image: maxandersson/icd-api
+db:
+  image: maxandersson/icd-db
+web:
+  image: maxandersson/icd-web
