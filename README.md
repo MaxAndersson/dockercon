@@ -15,7 +15,7 @@ web:
 ```
 
 ```bash
-flux create hr fluxcapacitor \
+flux create hr icd-stack \
 --source=GitRepository/flux-system \
 --chart ./charts/icd-stack \
 --export --values=charts/icd-stack/values.yaml \
