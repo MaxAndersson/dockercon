@@ -33,7 +33,7 @@ spec:
               value: neo4j
             - name: API_PORT
               value: "4000"
-          image: maxandersson/icd-api
+          image: {{.Values.api.image}}
           name: api
           ports:
             - containerPort: 4000

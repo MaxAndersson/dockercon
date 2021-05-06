@@ -29,7 +29,7 @@ spec:
               value: neo4j/letmein
             - name: NEO4J_dbms_security_procedures_unrestricted
               value: apoc.*
-          image: maxandersson/icd-db
+          image: {{.Values.db.image}}
           name: neo4j-db
           ports:
             - containerPort: 7474
