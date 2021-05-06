@@ -24,7 +24,7 @@ spec:
         io.kompose.service: web
     spec:
       containers:
-        - image: maxandersson/icd-web
+        - image: {{.Values.web.image}}
           name: web
           ports:
             - containerPort: 80
