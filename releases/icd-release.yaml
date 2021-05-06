@@ -10,7 +10,7 @@ spec:
       chart: ./charts/icd-stack
       sourceRef:
         kind: GitRepository
-        name: flux-system
+        name: icd-stack
   interval: 1m0s
   targetNamespace: default
   values:
